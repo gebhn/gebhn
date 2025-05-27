@@ -8,10 +8,20 @@
         body {
             overflow-y: scroll;
             font: 16px monospace, monospace;
+            margin: 0;
+            padding: 0;
         }
         #container {
             display: table;
             margin: 16px auto;
+            max-width: 100%;
+            box-sizing: border-box;
+            padding: 16px;
+        }
+        @media (max-width: 600px) {
+            pre {
+                font-size: 2vw;
+            }
         }
     </style>
 </head>
