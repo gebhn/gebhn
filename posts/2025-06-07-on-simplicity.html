@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On Simplicity</title>
+    <style>
+        body {
+            overflow-y: scroll;
+            font: 16px monospace, monospace;
+            margin: 0;
+            padding: 0;
+        }
+        h1,
+        h2,
+        h3,
+        nav,
+        main,
+        header,
+        footer,
+        section {
+            all: unset;
+            margin: 0;
+            padding: 0;
+        }
+        #container {
+            display: table;
+            margin: 16px auto;
+            max-width: 100%;
+            box-sizing: border-box;
+            padding: 16px;
+        }
+        @media (max-width: 600px) {
+            pre {
+                font-size: 2vw;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+<main>
+<pre>
+<h1><strong>On Simplicity</strong> - 2025-06-07</h1>
+________________________________________________________________________________
+
+As a second-career software engineer, I started coding at a time when complexity
+was often seen as a virtue, and "bigger is better" was the prevailing mindset.
+Over the years, I've seen and, admittedly, written many overly complicated
+solutions to problems that shouldn't have been so difficult in the first place.
+</pre>
+</main>
+
+<nav>
+<pre>
+<h2>[<a href="#index">000</a>] Index</h2>
+________________________________________________________________________________
+
+* What I saw ............................................................. [<a href="#what-i-saw">001</a>]
+* What I did ............................................................. [<a href="#what-i-did">002</a>]
+* What I learned ......................................................... [<a href="#what-i-learned">003</a>]
+* Contact ................................................................ [<a href="#contact">004</a>]
+</pre>
+</nav>
+
+<section>
+<pre>
+<h2>[<a href="#what-i-saw" id="what-i-saw" >001</a>] What I saw</h2>
+________________________________________________________________________________
+
+My journey began with JavaScript, a language that, while powerful, often
+presents an array of over-engineered solutions. It's easy to get caught in the
+cycle of chasing "The New Thing" instead of refining what's already there.
+
+There's a common saying that when your only tool is a hammer, every problem
+looks like a nail. With JavaScript, especially in front-end development, you
+might go looking for a nail only to discover you need a whole toolkit: special
+gloves, a nail expert to identify the nail, another expert to tell you what the
+hammered nail should look like, and then you find your hammer handle has been
+deprecated in favor of a nail gun.
+
+Early in my professional career, I quickly learned that many solutions introduce
+a new set of unique problems. Often, you're forced to buy into an entire
+ecosystem upfront, with no guarantee it'll be sustainable in the long run.
+This isn't a new issue, nor is it exclusive to JavaScript or even software
+development. However, I believe there's room for me to improve.
+</pre>
+</section>
+
+<section>
+<pre>
+<h2>[<a href="#what-i-did" id="what-i-did" >002</a>] What I did</h2>
+________________________________________________________________________________
+
+Entranced by the prospect of career advancement through the latest frameworks,
+I plunged into the ever-expanding and often confusing landscape of NPM. When it
+came time to build my own portfolio website, I opted for Gatsby, believing it
+was the right choice. I wrote thousands of lines of JavaScript to parse blog
+posts, generate static pages, and implement styling libraries and reusable
+components. I truly thought I was doing everything by the book. The result was
+a beautiful, albeit jumbled, mix of React components and Markdown blog posts.
+I eagerly bought a domain and fumbled with Netlify to deploy it immediately.
+
+I was ecstatic. It was magnificent. I refreshed the browser, checked all the
+accessibility scores and Lighthouse tests, and admired my work. Then I landed
+my first job, and my portfolio site sat untouched for over a year.
+
+Whoops.
+
+One weekend, a domain renewal reminder prompted me to update my portfolio and
+showcase my new skills. I cloned the repository, ran the install script to
+update dependencies, and immediately realized my grave error.
+
+Gatsby no longer worked. My formatters and linters were outdated, the plugin I
+used for generating slugs had major breaking changes, and the page generation
+API was completely different. My site wouldn't build.
+
+I consulted the documentation, reading through all the changes. In just twelve
+months, so much had changed, and I had used so few of Gatsby's features that I
+realized a simple static site generator and a classless CSS library could
+replicate my site's functionality.
+
+I cleaned up the repository, deleting 90% of the code. I replaced it with a few
+HTML templates and a Makefile to run the Zola command-line tool to build the
+website. It was faster to build, quicker to deploy, easier to develop, and far
+simpler to understand.
+</pre>
+</section>
+
+<section>
+<pre>
+<h2>[<a href="#what-i-learned" id="what-i-learned" >003</a>] What I learned</h2>
+________________________________________________________________________________
+
+Could I have just left my dependencies outdated and ignored the security
+vulnerability warnings from NPM? Probably. It wouldn't have felt good, but I
+could have deployed the site.
+
+Recently, I decided to rewrite my personal website again. Mostly because I
+<a href="https://en.wikipedia.org/wiki/Irony" target="_blank">don't do any blogging</a>, a full-blown static site generator was overkill. This
+time, I chose to use pure HTML. No external processes, no build commands,
+no dependencies.
+
+Since then, I've adopted Go as my primary language and dabbled in a few others.
+There are countless blog posts from countless smart people who can tell you why
+one language is superior for their use case or why certain features make a
+language worth using above all others. But for me, it all boils down to one
+thing: simplicity.
+
+I appreciate that there's generally only one way to write idiomatic Go code.
+The language has just 25 keywords, including built-in concurrency mechanisms.
+The formatter prevents arguments about tabs versus spaces, there are no ternary
+expressions, and even the while keyword has been removed from loop syntax. It's
+painstakingly imperative and strips away any <a href="https://en.wiktionary.org/wiki/shoot_oneself_in_the_foot" target="_blank">desire to be clever</a>.
+
+I like that the language doesn't break, and that the ecosystem encourages a
+"roll-your-own" approach to library design that integrates with the standard
+libraries rather than circumventing them.
+
+I like that if you search for "go websocket library," you'll likely find the
+same gorilla/websocket project that has been around for ten years, and if you
+check <a href="https://pkg.go.dev/golang.org/x/net/websocket#pkg-overview" target="_blank">the official documentation</a>, you'll find the same package.
+
+In twelve months, when I decide to update my website, I know the only thing
+waiting for me will be an HTML document. In twelve years, this same HTML
+document will almost certainly still work exactly as it does today, and I'll
+probably still be using gorilla/websocket.
+
+In my early days, I mistakenly equated learning new tools with improving my
+craft. While there's certainly value in trying new things, it's not the only
+path to growth.
+</pre>
+</section>
+
+<section>
+<pre>
+<h2>[<a href="#contact" id="contact">005</a>] Contact</h2>
+________________________________________________________________________________
+
+If you want to make fun of me for using HTML, Go, or BusyBox, you can reach me
+somewhere below. Alternatively, if you just want to say hello, or share a
+photograph of your cat, you can reach me in the same ways.
+
+Thanks for reading.
+
++------------------------------------[<a href="../index.html">Home</a>]------------------------------------+
+|                                                                              |
+|  +--[ED25519 256]--+                                                         |
+|  |         .+**o.=o|                                                         |
+|  |        ..+++O@*o|                                                         |
+|  |         *o=O+=B=|                                                         |
+|  |        + *=oo.E.|             * GitHub   @/<a href="https://www.github.com/gebhn">gebhn</a>                          |
+|  |        S+oo. o  |             * E-Mail   @/<a href="mailto:mail@gebhn.com">mail@gebhn.com</a>                 |
+|  |         o...    |             * LinkedIn @/<a href="https://www.linkedin.com/in/nicholas-gebhart/">nicholas-gebhart</a>               |
+|  |           .     |                                                         |
+|  |                 |                                                         |
+|  |                 |                                                         |
+|  +----[SHA256]-----+                                                         |
+|                                                                              |
++------------------------------------------------------------------------------+
+</pre>
+</section>
+</div>
+</body>
+</html>
