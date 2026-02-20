@@ -1,34 +1,63 @@
+:root {
+  --width: calc(60ch + 2rem);
+}
+
+*,
+:before,
+:after {
+  box-sizing: border-box;
+}
+
+html,
 body {
-    overflow-y: scroll;
-    font: 16px monospace, monospace;
-    margin: 0;
+  margin: 0;
+  font: 16px sans-serif;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+main ul {
+    list-style: none;
     padding: 0;
-}
-h1,
-h2,
-h3,
-nav,
-main,
-header,
-footer,
-section {
-    all: unset;
     margin: 0;
-    padding: 0;
 }
-#container {
-    display: table;
-    margin: 16px auto;
-    max-width: 100%;
-    box-sizing: border-box;
-    padding: 16px;
+
+main li {
+    display: grid;
+    grid-template-columns: 5ch 1fr auto;
+    gap: 0.5rem;
+    align-items: baseline;
+    width: 100%;
 }
-strong a {
-    text-decoration: none;
-    color: #000;
+
+main li span {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
-@media (max-width: 600px) {
-    pre {
-        font-size: 2vw;
-    }
+
+.d {
+    justify-self: end;
+    font-variant-numeric: tabular-nums;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+	  text-decoration: underline;
+  }
+}
+
+.c {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 0 1rem;
 }
